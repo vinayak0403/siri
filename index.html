@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Redirect System</title>
+</head>
+<body>
+    <script>
+        // Function to check if the user has visited the page before
+        function checkFirstVisit() {
+            // Retrieve the visit count from localStorage
+            let visitCount = localStorage.getItem('visitCount');
+            
+            // If visit count is null or undefined, it's the first visit
+            if (visitCount === null || visitCount === undefined) {
+                // Set visit count to 1
+                localStorage.setItem('visitCount', 1);
+                
+                // Redirect to the first-time link
+                window.location.href = "https://share.imagica.ai/?q=c57e4c71-d857-47f8-8163-0d1de56b6ce3";
+            } else {
+                // Increment visit count
+                visitCount = parseInt(visitCount) + 1;
+                
+                // Update visit count in localStorage
+                localStorage.setItem('visitCount', visitCount);
+                
+                // Redirect to the link for more than one visit
+                window.location.href = "https://share.imagica.ai/?q=c57e4c71-d857-47f8-8163-0d1de56b6ce3";
+            }
+        }
+        
+        // Call the function on page load
+        checkFirstVisit();
+    </script>
+</body>
+</html>
